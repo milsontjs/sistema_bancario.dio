@@ -13,7 +13,7 @@ def menu():
     [nc]\tNova Conta
     [lc]\tListar Contas
     [nu]\tNovo Usuário
-    [s] Sair    
+    [q]\tSair    
     => """
     return input(textwrap.dedent(menu))
 
@@ -27,7 +27,7 @@ def depositar(saldo, valor, extrato, /):
 
     return saldo, extrato
 
-def sacar(*, saldo, valor, extrato, limite, numero_saques, limete_saques):
+def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
     excedeu_saldo = valor > saldo
     excedeu_limite = valor > limite
     excedeu_saques = numero_saques >= limite_saques
@@ -51,6 +51,7 @@ def sacar(*, saldo, valor, extrato, limite, numero_saques, limete_saques):
         print("\n@@@ Operação falhou! O valor informado é inválido. @@@")
 
     return saldo, extrato
+
 def exibir_extrato(saldo, /, *, extrato):
     print("\n================ EXTRATO ================")
     print("Não foram realizadas movimentações." if not extrato else extrato)
